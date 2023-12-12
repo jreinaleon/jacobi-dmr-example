@@ -1,0 +1,11 @@
+#!/bin/bash
+
+SLURM_CONF=@MYSLURM_CONF_DIR@/slurm.conf
+
+if [[ $(hostname) == @MYSLURM_MASTER@ ]]; then
+	echo "# Management: $(hostname) $(taskset -c -p $$)"
+	@MYSLURM_ROOT@/sbin/slurmctld -cDv
+else
+	echo "# Compute: ${PMI_RANK} $(hostname) $(taskset -c -p $$)"
+	@MYSLURM_ROOT@/sbin/slurmd -cDv
+fi
