@@ -1,6 +1,6 @@
 DMRFLAGS 	= -I${DMR_PATH} -L${DMR_PATH} -ldmr
 FLAGS  		= -O3 -Wall -fopenmp
-MPIFLAGS    = -I/apps/dmr/mpich/include -L/apps/dmr/mpich/lib -lmpi
+MPIFLAGS    = -I/apps/dmr/mpich-3.2/include -L/apps/dmr/mpich-3.2/lib -lmpi
 SLURMFLAGS  = -I${DMR_PATH}/slurm-install/include -L${DMR_PATH}/slurm-install/lib -lslurm
 
 jacobi: jacobi.c
